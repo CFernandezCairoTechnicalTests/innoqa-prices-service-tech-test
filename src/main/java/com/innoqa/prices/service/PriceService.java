@@ -1,6 +1,5 @@
 package com.innoqa.prices.service;
 
-import com.innoqa.prices.model.PriceDTO;
 import com.innoqa.prices.repository.impl.PriceCustomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

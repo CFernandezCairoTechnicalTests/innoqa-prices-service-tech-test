@@ -2,8 +2,6 @@ package com.innoqa.prices.model;
 
 import lombok.*;
 
-import javax.persistence.*;
-import java.util.Currency;
 import java.util.Date;
 
 @Setter

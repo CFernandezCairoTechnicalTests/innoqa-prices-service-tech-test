@@ -2,9 +2,8 @@ package com.innoqa.prices;
 
 import com.innoqa.prices.model.Brand;
 import com.innoqa.prices.model.Price;
-import com.innoqa.prices.repository.PriceRepository;
 import com.innoqa.prices.repository.BrandRepository;
-import com.innoqa.prices.repository.impl.PriceCustomRepository;
+import com.innoqa.prices.repository.PriceRepository;
 import com.innoqa.prices.service.BrandService;
 import com.innoqa.prices.service.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;

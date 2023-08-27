@@ -2,7 +2,7 @@ package com.innoqa.prices.controller;
 
 import com.innoqa.prices.model.PriceDTO;
 import com.innoqa.prices.model.Price_v2;
-import com.innoqa.prices.service.PriceService_v2;
+import com.innoqa.prices.service.impl.PriceService_v2Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequestMapping("/api/v2")
 public class PriceController_v2 {
     @Autowired
-    private PriceService_v2 priceServiceV2;
+    private PriceService_v2Impl priceServiceV2;
 
     @GetMapping("/techtest")
     public ResponseEntity<PriceDTO> getResult(@RequestParam(required=true) Long brandID,

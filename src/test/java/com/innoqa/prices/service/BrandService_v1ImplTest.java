@@ -1,5 +1,6 @@
 package com.innoqa.prices.service;
 
+import com.innoqa.prices.exception.ResourceNotFoundException;
 import com.innoqa.prices.model.Brand_v1;
 import com.innoqa.prices.model.Price_v1;
 import com.innoqa.prices.repository.BrandRepository_v1;
@@ -20,7 +21,11 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class BrandService_v1ImplTest {
@@ -117,6 +122,111 @@ class BrandService_v1ImplTest {
         assertThat(brand_v1Saved).isNotNull();
     }
 
+    @DisplayName("SAVE ::  Brand_v1 with Throw Exception")
+    @Test
+    void saveBrand_v1WithThrowException(){
+        //given
+        Brand_v1 brand_v1ForSave = Brand_v1.builder()
+                .name("ZARA_ForSave")
+                .priceV1s(new ArrayList<>())
+                .build();
+        given(brandRepository_v1.findById(brand_v1ForSave.getId()))
+                .willReturn(Optional.of(brand_v1ForSave));
+
+        //when
+        assertThrows(ResourceNotFoundException.class,() -> {
+            brandService_v1.save(brand_v1ForSave);
+        });
+
+        //then
+        verify(brandRepository_v1,never()).save(brand_v1ForSave);
+    }
+
+    @DisplayName("GET :: List all Brand_v1")
+    @Test
+    void testListBrand_v1(){
+        //given
+        Brand_v1 brand_v1ForList = Brand_v1.builder()
+                .name("ZARA_ForList")
+                .priceV1s(new ArrayList<>())
+                .build();
+        given(brandRepository_v1.findAll()).willReturn(List.of(brand_v1,brand_v1ForList));
+
+        //when
+        List<Brand_v1> allBrand_v1 = brandService_v1.findAll();
+
+        //then
+        assertThat(allBrand_v1).isNotNull();
+        assertThat(allBrand_v1.size()).isEqualTo(2);
+    }
+
+    @DisplayName("GET :: List empty Brand_v1")
+    @Test
+    void testEmptyBrand_v1(){
+        //given
+        Brand_v1 brand_v1ForList2 = Brand_v1.builder()
+                .name("ZARA_ForList2")
+                .priceV1s(new ArrayList<>())
+                .build();
+        given(brandRepository_v1.findAll()).willReturn(Collections.emptyList());
+
+        //when
+        List<Brand_v1> allBrands_v1 = brandService_v1.findAll();
+
+        //then
+        assertThat(allBrands_v1).isEmpty();
+        assertThat(allBrands_v1.size()).isZero();
+    }
+
+    @DisplayName("GET :: Brand_v1 by ID")
+    @Test
+    void testGetBrand_v1ByID(){
+        //given
+        Brand_v1 brand_v1ForGetByID = Brand_v1.builder()
+                .name("ZARA_ForGetByID")
+                .priceV1s(new ArrayList<>())
+                .build();
+        given(brandRepository_v1.findById(0L)).willReturn(Optional.of(brand_v1ForGetByID));
+
+        //when
+        Brand_v1 brand_v1Saved = brandService_v1.findById(brand_v1ForGetByID.getId()).get();
+
+        //then
+        assertThat(brand_v1Saved).isNotNull();
+    }
+
+    @DisplayName("UPDATE :: Brand_v1")
+    @Test
+    void testForUpdateBrand_v1(){
+        //given
+        Brand_v1 brand_v1ForUpdate = Brand_v1.builder()
+                .name("ZARA_ForUpdate")
+                .priceV1s(new ArrayList<>())
+                .build();
+        given(brandRepository_v1.save(brand_v1ForUpdate)).willReturn(brand_v1ForUpdate);
+        brand_v1ForUpdate.setName("ZARA_ForUpdate_Updated");
+
+        //when
+        Brand_v1 updatedBrand_v1  = brandService_v1.update(brand_v1ForUpdate);
+
+        //then
+        assertThat(updatedBrand_v1.getName()).isEqualTo(brand_v1ForUpdate.getName());
+    }
+
+    @DisplayName("REMOVE ::  Brand_v1 by ID")
+    @Test
+    void testRemoveBrand_v1ByID(){
+        //given
+        Long brand_v1Id = 1L;
+        willDoNothing().given(brandRepository_v1).deleteById(brand_v1Id);
+
+        //when
+        brandService_v1.deleteById(brand_v1Id);
+
+        //then
+        verify(brandRepository_v1,times(1)).deleteById(brand_v1Id);
+    }
+    
     //@Test
     void getResult() {
     }

@@ -12,12 +12,13 @@ public interface BrandService_v1 {
 
     List<Brand_v1> findAll();
 
-    Optional<Brand_v1> findById(String id);
+    Optional<Brand_v1> findById(Long id);
 
     Brand_v1 update(Brand_v1 brand_v1Updated);
 
-    void deleteById(String id);
+    void deleteById(Long id);
 
     public void deleteAll();
+
     public Optional<Price_v1> getResult(Long brandID, Long productID, String applyDate);
 }

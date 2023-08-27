@@ -11,11 +11,13 @@ public interface PriceService_v2 {
 
     List<Price_v2> findAll();
 
-    Optional<Price_v2> findById(String id);
+    Optional<Price_v2> findById(Long id);
 
     Price_v2 update(Price_v2 price_v2Updated);
 
-    void deleteById(String id);
+    void deleteById(Long id);
+
+    public void deleteAll();
 
     public Optional<Price_v2> getResult(Long brandID, Long productID, String applyDate);
 }

@@ -39,7 +39,7 @@ public class PriceService_v2Impl implements PriceService_v2 {
      */
     @Override
     public List<Price_v2> findAll() {
-        return null;
+        return priceRepository_v2.findAll();
     }
 
     /**
@@ -47,8 +47,8 @@ public class PriceService_v2Impl implements PriceService_v2 {
      * @return
      */
     @Override
-    public Optional<Price_v2> findById(String id) {
-        return Optional.empty();
+    public Optional<Price_v2> findById(Long id) {
+        return priceRepository_v2.findById(id);
     }
 
     /**
@@ -57,15 +57,23 @@ public class PriceService_v2Impl implements PriceService_v2 {
      */
     @Override
     public Price_v2 update(Price_v2 price_v2Updated) {
-        return null;
+        return priceRepository_v2.save(price_v2Updated);
     }
 
     /**
      * @param id
      */
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
+        priceRepository_v2.deleteById(id);
+    }
 
+    /**
+     *
+     */
+    @Override
+    public void deleteAll() {
+        priceRepository_v2.deleteAll();
     }
 
     @SneakyThrows

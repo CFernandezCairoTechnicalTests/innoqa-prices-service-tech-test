@@ -19,7 +19,7 @@ import java.util.Optional;
 public class BrandService_v1Impl implements BrandService_v1 {
 
     @Autowired
-    private BrandRepository_v1 brandRepositoryV1;
+    private BrandRepository_v1 brandRepository_v1;
 
     /**
      * @param brand_v1
@@ -27,44 +27,44 @@ public class BrandService_v1Impl implements BrandService_v1 {
      */
     @Override
     public Brand_v1 save(Brand_v1 brand_v1) {
-        Optional<Brand_v1> brand_v1Saved = brandRepositoryV1.findById(brand_v1.getId());
+        Optional<Brand_v1> brand_v1Saved = brandRepository_v1.findById(brand_v1.getId());
         if(brand_v1Saved.isPresent()){
             throw new ResourceNotFoundException("The Brand_v1 Exists : " + brand_v1.getId());
         }
-        Brand_v1 result = brandRepositoryV1.save(brand_v1);
+        Brand_v1 result = brandRepository_v1.save(brand_v1);
         return result;
     }
 
     @Override
     public List<Brand_v1> findAll() {
-        return null;
+        return brandRepository_v1.findAll();
     }
 
     @Override
-    public Optional<Brand_v1> findById(String id) {
-        return Optional.empty();
+    public Optional<Brand_v1> findById(Long id) {
+        return brandRepository_v1.findById(id);
     }
 
     @Override
     public Brand_v1 update(Brand_v1 brand_v1Updated) {
-        return null;
+        return brandRepository_v1.save(brand_v1Updated);
     }
 
     @Override
-    public void deleteById(String id) {
-
+    public void deleteById(Long id) {
+        brandRepository_v1.deleteById(id);
     }
 
     @Override
     public void deleteAll() {
-
+        brandRepository_v1.deleteAll();
     }
 
     @SneakyThrows
     @Override
     public Optional<Price_v1> getResult(Long brandID, Long productID, String applyDate) {
 
-        Optional<Brand_v1> brand_v1 = brandRepositoryV1.findById(brandID);
+        Optional<Brand_v1> brand_v1 = brandRepository_v1.findById(brandID);
         if(brand_v1.isEmpty())
             return Optional.empty();
 

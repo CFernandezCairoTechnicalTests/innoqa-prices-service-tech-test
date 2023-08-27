@@ -1,9 +1,10 @@
 package com.innoqa.prices;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@org.springframework.boot.autoconfigure.SpringBootApplication
+@SpringBootApplication
 @EnableJpaAuditing //  Enabling JPA Auditing
 public class PriceServiceApplication /*implements CommandLineRunner*/ {
 

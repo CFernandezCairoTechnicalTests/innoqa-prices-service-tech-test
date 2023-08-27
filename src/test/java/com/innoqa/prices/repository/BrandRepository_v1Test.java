@@ -2,7 +2,6 @@ package com.innoqa.prices.repository;
 
 import com.innoqa.prices.model.Brand_v1;
 import com.innoqa.prices.model.Price_v1;
-import com.innoqa.prices.model.Price_v2;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Currency;
+import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -125,4 +126,71 @@ public class BrandRepository_v1Test {
 
     }
 
+    @DisplayName("GET :: Brand v1 by ID")
+    @Test
+    void testGetBrandV1ByID(){
+        //given - dado o condición previa o configuración
+        // in forEach was saved brand_v1
+
+        //when - comportamiento o accion que vamos a probar
+        Brand_v1 localBrand_v1 = brandRepository_v1.findById(brand_v1.getId()).get();
+
+        //then
+        assertThat(localBrand_v1).isNotNull();
+    }
+
+    @DisplayName("UPDATE :: Brand_v1")
+    @Test
+    void testForUpdateBrand_v1(){
+        //given - dado o condición previa o configuración
+        Brand_v1 brand_v1_2ForUpdate = Brand_v1.builder()
+                .name("ZARA1_2")
+                .priceV1s(new ArrayList<>())
+                .build();
+        brandRepository_v1.save(brand_v1_2ForUpdate);
+
+        //when
+        Brand_v1 brand_v1_2Updated = brandRepository_v1.findById(brand_v1_2ForUpdate.getId()).get();
+        brand_v1_2Updated.setName("ZARA1_2UPDATED");
+        Brand_v1 brand_v1_2Result = brandRepository_v1.save(brand_v1_2Updated);
+
+        //then
+        assertThat(brand_v1_2Result.getName()).isEqualTo(brand_v1_2Updated.getName());
+    }
+
+    @DisplayName("GET :: All Brand_v1")
+    @Test
+    void testListBrand_v1(){
+        //given
+        Brand_v1 brand_v1_3ForList_1 = Brand_v1.builder()
+                .name("ZARA1_3_ForList_1")
+                .priceV1s(new ArrayList<>())
+                .build();
+        brandRepository_v1.save(brand_v1_3ForList_1);
+
+        //when
+        List<Brand_v1> brandV1List = brandRepository_v1.findAll();
+
+        //then
+        assertThat(brandV1List).isNotNull();
+        assertThat(brandV1List.size()).isGreaterThan(1);
+    }
+
+    @DisplayName("REMOVE :: Brand_v1 by ID")
+    @Test
+    void testRemoveBrand_v1ByID(){
+        //given - dado o condición previa o configuración
+        Brand_v1 brand_v1_4ForRemove_1 = Brand_v1.builder()
+                .name("ZARA1_3_ForRemove_1")
+                .priceV1s(new ArrayList<>())
+                .build();
+        brand_v1_4ForRemove_1 = brandRepository_v1.save(brand_v1_4ForRemove_1);
+
+        //when
+        brandRepository_v1.deleteById(brand_v1_4ForRemove_1.getId());
+        Optional<Brand_v1> chargingStationOptional = brandRepository_v1.findById(brand_v1_4ForRemove_1.getId());
+
+        //then
+        assertThat(chargingStationOptional).isEmpty();
+    }
 }

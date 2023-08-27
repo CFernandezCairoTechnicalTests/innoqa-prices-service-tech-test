@@ -14,8 +14,8 @@ import java.util.Date;
 
 @Entity
 @ToString
-@Table(name = "prices")
-public class Price {
+@Table(name = "prices_2")
+public class Price_v2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,5 +43,9 @@ public class Price {
 
     @Column(name = "CURR", nullable = false)
     private Currency eurCurr;
+
+    @ManyToOne(optional = false, /*cascade = CascadeType.ALL, */fetch = FetchType.EAGER)
+    @JoinColumn(name = "BRAND_ID", referencedColumnName = "id", nullable = false)
+    private Brand_v2 brandId;
 
 }

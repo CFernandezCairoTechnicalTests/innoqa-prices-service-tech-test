@@ -2,9 +2,6 @@ package com.innoqa.prices.model;
 
 import lombok.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.*;
 
 @Setter
@@ -14,8 +11,8 @@ import javax.persistence.*;
 @Builder
 
 @Entity
-@Table(name = "brands")
-public class Brand {
+@Table(name = "brands_2")
+public class Brand_v2 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +20,5 @@ public class Brand {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "BRAND_ID", referencedColumnName = "id", nullable = false)
-    List <Price> prices = new ArrayList < > ();
 
 }

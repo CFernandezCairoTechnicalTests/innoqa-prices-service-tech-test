@@ -37,15 +37,13 @@ class PriceService_v2ImplTest {
     @Mock
     private PriceRepository_v2 priceRepository_v2;
 
-    @Autowired
-    private ResourceLoader resourceLoader;
-
     @InjectMocks
     private PriceService_v2Impl priceService_v2;
 
-    private Brand_v2 brand_v2;
+    @Autowired
+    private ResourceLoader resourceLoader;
 
-    private Price_v2 price_v2;
+    private Brand_v2 brand_v2;
 
     @SneakyThrows
     @BeforeEach
@@ -272,7 +270,4 @@ class PriceService_v2ImplTest {
         verify(priceRepository_v2,times(1)).deleteById(price_v2Id);
     }
 
-    //@Test
-    void getResult() {
-    }
 }

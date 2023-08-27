@@ -22,7 +22,6 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.Mockito.*;
@@ -36,15 +35,14 @@ class BrandService_v1ImplTest {
     @Mock
     private PriceRepository_v1 priceRepository_v1;
 
-    @Autowired
-    private ResourceLoader resourceLoader;
-
     @InjectMocks
     private BrandService_v1Impl brandService_v1;
 
+    @Autowired
+    private ResourceLoader resourceLoader;
+
     private Brand_v1 brand_v1;
 
-    private Price_v1 price_v1;
 
     @SneakyThrows
     @BeforeEach
@@ -103,7 +101,7 @@ class BrandService_v1ImplTest {
         brand_v1.getPriceV1s().add(pricev1_3);
         brand_v1.getPriceV1s().add(pricev1_4);
 
-        this.brandRepository_v1.save(brand_v1);
+        brandRepository_v1.save(brand_v1);
         //---------------------------------------/
     }
 
@@ -226,8 +224,5 @@ class BrandService_v1ImplTest {
         //then
         verify(brandRepository_v1,times(1)).deleteById(brand_v1Id);
     }
-    
-    //@Test
-    void getResult() {
-    }
+
 }

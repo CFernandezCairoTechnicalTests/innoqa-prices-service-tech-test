@@ -24,7 +24,7 @@ public class BrandController_v1 {
                                               @RequestParam(required=true) Long productID,
                                               @RequestParam(required=true) String applyDate) {
 
-        Optional<Price_v1> priceToApply = brandServiceV1.getResult(brandID, productID, applyDate);
+        Optional<Price_v1> priceToApply = brandServiceV1.innoqaTechTest_v1(brandID, productID, applyDate);
         if (priceToApply.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

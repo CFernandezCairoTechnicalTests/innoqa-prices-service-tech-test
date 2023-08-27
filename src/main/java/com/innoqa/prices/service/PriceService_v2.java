@@ -1,6 +1,5 @@
 package com.innoqa.prices.service;
 
-import com.innoqa.prices.model.Brand_v1;
 import com.innoqa.prices.model.Price_v2;
 
 import java.util.List;
@@ -19,5 +18,5 @@ public interface PriceService_v2 {
 
     public void deleteAll();
 
-    public Optional<Price_v2> getResult(Long brandID, Long productID, String applyDate);
+    public Optional<Price_v2> innoqaTechTest_v2(Long brandID, Long productID, String applyDate);
 }

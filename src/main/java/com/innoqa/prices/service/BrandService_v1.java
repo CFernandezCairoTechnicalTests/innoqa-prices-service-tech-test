@@ -20,5 +20,5 @@ public interface BrandService_v1 {
 
     public void deleteAll();
 
-    public Optional<Price_v1> getResult(Long brandID, Long productID, String applyDate);
+    public Optional<Price_v1> innoqaTechTest_v1(Long brandID, Long productID, String applyDate);
 }

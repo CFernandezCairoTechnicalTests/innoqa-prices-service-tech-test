@@ -62,7 +62,7 @@ public class BrandService_v1Impl implements BrandService_v1 {
 
     @SneakyThrows
     @Override
-    public Optional<Price_v1> getResult(Long brandID, Long productID, String applyDate) {
+    public Optional<Price_v1> innoqaTechTest_v1(Long brandID, Long productID, String applyDate) {
 
         Optional<Brand_v1> brand_v1 = brandRepository_v1.findById(brandID);
         if(brand_v1.isEmpty())

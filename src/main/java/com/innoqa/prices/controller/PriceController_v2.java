@@ -23,7 +23,7 @@ public class PriceController_v2 {
                                               @RequestParam(required=true) Long productID,
                                               @RequestParam(required=true) String applyDate) {
 
-        Optional<Price_v2> priceToApply = priceServiceV2.getResult(brandID, productID, applyDate);
+        Optional<Price_v2> priceToApply = priceServiceV2.innoqaTechTest_v2(brandID, productID, applyDate);
         if (priceToApply.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

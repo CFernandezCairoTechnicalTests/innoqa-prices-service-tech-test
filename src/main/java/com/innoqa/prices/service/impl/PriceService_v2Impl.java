@@ -78,7 +78,7 @@ public class PriceService_v2Impl implements PriceService_v2 {
 
     @SneakyThrows
     @Override
-    public Optional<Price_v2> getResult(Long brandID, Long productID, String applyDate) {
+    public Optional<Price_v2> innoqaTechTest_v2(Long brandID, Long productID, String applyDate) {
 
         List<Price_v2> prices_v2 = priceRepository_v2.findAllByproductId(productID);
         if(prices_v2.isEmpty())

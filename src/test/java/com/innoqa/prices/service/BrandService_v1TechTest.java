@@ -1,12 +1,8 @@
 package com.innoqa.prices.service;
 
-import com.innoqa.prices.model.Brand_v1;
 import com.innoqa.prices.model.Price_v1;
-import com.innoqa.prices.model.Price_v2;
-import com.innoqa.prices.repository.BrandRepository_v2;
 import com.innoqa.prices.repository.PriceRepository_v1;
 import com.innoqa.prices.service.impl.BrandService_v1Impl;
-import com.innoqa.prices.service.impl.PriceService_v2Impl;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -55,7 +51,7 @@ class BrandService_v1TechTest {
     @ParameterizedTest
     @MethodSource(value = "generatorOfParams")
     @DisplayName(value = "INNOQA TECH-TEST v1")
-    void getResult(Long brandID, Long productID, String applyDate, Float expectedPrice) {
+    void testinnoqaTechTest_v1(Long brandID, Long productID, String applyDate, Float expectedPrice) {
 
         Optional<Price_v1> result = brandService_v1.innoqaTechTest_v1(brandID, productID, applyDate);
 

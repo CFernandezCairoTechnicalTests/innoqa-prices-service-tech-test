@@ -51,7 +51,7 @@ class PriceService_v2TechTest {
     @ParameterizedTest
     @MethodSource(value = "generatorOfParams")
     @DisplayName(value = "INNOQA TECH-TEST v2")
-    void getResult(Long brandID, Long productID, String applyDate, Float expectedPrice) {
+    void testinnoqaTechTest_v2(Long brandID, Long productID, String applyDate, Float expectedPrice) {
 
         Optional<Price_v2> result = priceService_v2.innoqaTechTest_v2(brandID, productID, applyDate);
 

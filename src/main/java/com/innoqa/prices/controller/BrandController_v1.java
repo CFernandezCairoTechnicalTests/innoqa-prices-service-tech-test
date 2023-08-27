@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(BrandController_v1.INNOQA_TECH_TEST_v1_RESOURCE)
 public class BrandController_v1 {
+
+    public static final String INNOQA_TECH_TEST_v1_RESOURCE = "/api/v1";
 
     @Autowired
     private BrandService_v1Impl brandServiceV1;

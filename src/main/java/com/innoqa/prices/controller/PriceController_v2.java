@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v2")
+@RequestMapping(PriceController_v2.INNOQA_TECH_TEST_v2_RESOURCE)
 public class PriceController_v2 {
+
+    public static final String INNOQA_TECH_TEST_v2_RESOURCE = "/api/v2";
+
     @Autowired
     private PriceService_v2Impl priceServiceV2;
 

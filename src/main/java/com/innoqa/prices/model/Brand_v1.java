@@ -2,6 +2,7 @@ package com.innoqa.prices.model;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "brands_1")
-public class Brand_v1 {
+public class Brand_v1 implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

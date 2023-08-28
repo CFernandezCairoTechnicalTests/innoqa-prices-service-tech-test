@@ -2,6 +2,7 @@ package com.innoqa.prices.model;
 
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Setter
@@ -12,7 +13,7 @@ import java.util.Date;
 
 @Data
 @ToString
-public class PriceDTO {
+public class PriceDTO implements Serializable {
 
     private Date startDate;
 

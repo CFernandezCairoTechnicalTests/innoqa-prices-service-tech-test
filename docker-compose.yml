@@ -1,0 +1,44 @@
+version: '3.8'
+
+volumes:
+  inno_rc1_redis-data:
+    driver: local
+
+services:
+  inno-redis-server:
+    image: redis:latest
+    command: redis-server --save 20 1 --loglevel warning
+    volumes:
+      - inno_rc1_redis-data:/data:Z
+    restart: always
+    container_name: inno-redis-server
+    hostname: inno-redis-server
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      # - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL,CONFIG
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - '6379:6379'
+    networks:
+      - 'dockernetflix-network'
+  prices-service:
+    image: innoqa/prices:latest
+    build:
+      context: ./
+      dockerfile: ./src/main/docker/Dockerfile
+    restart: always
+    container_name: prices-service
+    hostname: prices-service
+    ports:
+      - '8080:8080'
+    networks:
+      - 'dockernetflix-network'
+    depends_on:
+      inno-redis-server:
+        condition: service_healthy
+    environment:
+      TZ: Africa/Abidjan
+      hostName: prices-service
+networks:
+  dockernetflix-network: #necesitamos crear en una red para alojar los servicios en ella y que puedan comunicarse entre sí

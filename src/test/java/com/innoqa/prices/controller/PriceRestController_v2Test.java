@@ -30,8 +30,8 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @SpringBootTest
-@TestPropertySource(locations = "classpath:db-test.properties")
-@Sql("/PriceRestController_v2Test.sql")
+@TestPropertySource(locations = "classpath:tech-test-db-v2.properties")
+//@Sql("/PriceRestController_v2Test.sql")
 @AutoConfigureMockMvc
 @AutoConfigureWebTestClient
 class PriceRestController_v2Test {

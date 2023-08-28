@@ -39,11 +39,11 @@ class PriceService_v2TechTest {
      */
     private static Stream<Arguments> generatorOfParams() {
         return Stream.of(
-                Arguments.of(1L, 35455L, "2020-06-14-10:00:00", 35.5F),
-                Arguments.of(1L, 35455L, "2020-06-14-16:00:00", 35.5F),
-                Arguments.of(1L, 35455L, "2020-06-14-21:00:00", 25.45F),
-                Arguments.of(1L, 35455L, "2020-06-15-10:00:00", 30.5F),
-                Arguments.of(1L, 35455L, "2020-06-16-21:00:00", 38.95F)
+                Arguments.of(11L, 35455L, "2020-06-14-10:00:00", 35.5F),
+                Arguments.of(11L, 35455L, "2020-06-14-16:00:00", 35.5F),
+                Arguments.of(11L, 35455L, "2020-06-14-21:00:00", 25.45F),
+                Arguments.of(11L, 35455L, "2020-06-15-10:00:00", 30.5F),
+                Arguments.of(11L, 35455L, "2020-06-16-21:00:00", 38.95F)
         );
     }
 

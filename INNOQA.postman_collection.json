@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "a34d3284-9f90-4fdd-af84-cd10b7bfb211",
+		"name": "INNOQA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13441371",
+		"_collection_link": "https://www.postman.com/galactic-space-75881/workspace/electricalvehicle/collection/13441371-a34d3284-9f90-4fdd-af84-cd10b7bfb211?action=share&source=collection_link&creator=13441371"
+	},
+	"item": [
+		{
+			"name": "GET PRICE v1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9080/realms/electrical-vehicle/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "WnC9y8kKtVGJkSK2TJMFvhOTLdMbAlht",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "chargingstationservices",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:9080/realms/electrical-vehicle/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "ev",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/techtest?brandID=1&productID=35455&applyDate=2020-06-14-10:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"techtest"
+					],
+					"query": [
+						{
+							"key": "brandID",
+							"value": "1"
+						},
+						{
+							"key": "productID",
+							"value": "35455"
+						},
+						{
+							"key": "applyDate",
+							"value": "2020-06-14-10:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET PRICE v2",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:9080/realms/electrical-vehicle/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "WnC9y8kKtVGJkSK2TJMFvhOTLdMbAlht",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "chargingstationservices",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "password_credentials",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:9080/realms/electrical-vehicle/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "ev",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v2/techtest?brandID=1&productID=35455&applyDate=2020-06-14-10:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v2",
+						"techtest"
+					],
+					"query": [
+						{
+							"key": "brandID",
+							"value": "1"
+						},
+						{
+							"key": "productID",
+							"value": "35455"
+						},
+						{
+							"key": "applyDate",
+							"value": "2020-06-14-10:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

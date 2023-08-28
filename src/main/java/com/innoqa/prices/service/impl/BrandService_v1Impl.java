@@ -65,7 +65,7 @@ public class BrandService_v1Impl implements BrandService_v1 {
 
     @SneakyThrows
     @Override
-    @Cacheable("innoqa-tech-test-v1")
+    //@Cacheable("innoqa-tech-test-v1")
     public Optional<Price_v1> innoqaTechTest_v1(Long brandID, Long productID, String applyDate) {
 
         Optional<Brand_v1> brand_v1 = brandRepository_v1.findById(brandID);

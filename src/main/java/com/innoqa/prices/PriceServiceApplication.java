@@ -1,25 +1,10 @@
 package com.innoqa.prices;
 
-import com.innoqa.prices.model.Brand_v1;
-import com.innoqa.prices.model.Price_v1;
-import com.innoqa.prices.model.Brand_v2;
-import com.innoqa.prices.model.Price_v2;
-import com.innoqa.prices.repository.BrandRepository_v1;
-import com.innoqa.prices.repository.PriceRepository_v1;
-import com.innoqa.prices.repository.BrandRepository_v2;
-import com.innoqa.prices.repository.PriceRepository_v2;
-import com.innoqa.prices.service.BrandService_v1;
-import com.innoqa.prices.service.PriceService_v2;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Currency;
-
-@org.springframework.boot.autoconfigure.SpringBootApplication
+@SpringBootApplication
 @EnableJpaAuditing //  Enabling JPA Auditing
 public class PriceServiceApplication /*implements CommandLineRunner*/ {
 

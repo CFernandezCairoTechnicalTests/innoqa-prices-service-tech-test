@@ -2,7 +2,7 @@ package com.innoqa.prices.controller;
 
 import com.innoqa.prices.model.Price_v1;
 import com.innoqa.prices.model.PriceDTO;
-import com.innoqa.prices.service.BrandService_v1;
+import com.innoqa.prices.service.impl.BrandService_v1Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping(BrandController_v1.INNOQA_TECH_TEST_v1_RESOURCE)
 public class BrandController_v1 {
 
+    public static final String INNOQA_TECH_TEST_v1_RESOURCE = "/api/v1";
+
     @Autowired
-    private BrandService_v1 brandServiceV1;
+    private BrandService_v1Impl brandServiceV1;
 
     @GetMapping("/techtest")
     public ResponseEntity<PriceDTO> getResult(@RequestParam(required=true) Long brandID,
                                               @RequestParam(required=true) Long productID,
                                               @RequestParam(required=true) String applyDate) {
 
-        Optional<Price_v1> priceToApply = brandServiceV1.getResult(brandID, productID, applyDate);
+        Optional<Price_v1> priceToApply = brandServiceV1.innoqaTechTest_v1(brandID, productID, applyDate);
         if (priceToApply.isEmpty()) {
             return ResponseEntity.noContent().build();
         }

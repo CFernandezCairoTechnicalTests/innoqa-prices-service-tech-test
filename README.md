@@ -5,8 +5,6 @@
 
 ### Run all containers
 1. docker-compose up
-   2. inno-redis-server:6379
-   3. prices-service:8080
 
 ### Testing
 1. Import in postman INNOQA.postman_collection
@@ -16,3 +14,5 @@
 2. http://localhost:8080/v3/api-docs [Open API]
 3. http://localhost:8080/api/v1/techtest?brandID=1&productID=35455&applyDate=2020-06-14-10:00:00 [EndPoint v1]
 4. http://localhost:8080/api/v2/techtest?brandID=1&productID=35455&applyDate=2020-06-14-10:00:00 [EndPoint v2]
+5. inno-redis-server:6379 [redis-server]
+6. prices-service:8080 [rest endpoint]

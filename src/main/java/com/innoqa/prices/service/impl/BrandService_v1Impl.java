@@ -7,6 +7,8 @@ import com.innoqa.prices.repository.BrandRepository_v1;
 import com.innoqa.prices.service.BrandService_v1;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableCaching
 public class BrandService_v1Impl implements BrandService_v1 {
 
     @Autowired
@@ -62,6 +65,7 @@ public class BrandService_v1Impl implements BrandService_v1 {
 
     @SneakyThrows
     @Override
+    @Cacheable("innoqa-tech-test-v1")
     public Optional<Price_v1> innoqaTechTest_v1(Long brandID, Long productID, String applyDate) {
 
         Optional<Brand_v1> brand_v1 = brandRepository_v1.findById(brandID);

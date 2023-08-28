@@ -3,6 +3,7 @@ package com.innoqa.prices.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Currency;
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import java.util.Date;
 @Entity
 @ToString
 @Table(name = "prices_2")
-public class Price_v2 {
+public class Price_v2 implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

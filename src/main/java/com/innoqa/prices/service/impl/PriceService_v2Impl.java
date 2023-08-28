@@ -7,6 +7,8 @@ import com.innoqa.prices.repository.PriceRepository_v2;
 import com.innoqa.prices.service.PriceService_v2;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@EnableCaching
 public class PriceService_v2Impl implements PriceService_v2 {
     @Autowired
     private PriceRepository_v2 priceRepository_v2;

@@ -22,9 +22,9 @@ public class BrandController_v1 {
     private BrandService_v1Impl brandServiceV1;
 
     @GetMapping("/techtest")
-    public ResponseEntity<PriceDTO> getResult(@RequestParam(required=true) Long brandID,
-                                              @RequestParam(required=true) Long productID,
-                                              @RequestParam(required=true) String applyDate) {
+    public ResponseEntity<PriceDTO> innoqaTechTest_v1(@RequestParam(required=true) Long brandID,
+                                                      @RequestParam(required=true) Long productID,
+                                                      @RequestParam(required=true) String applyDate) {
 
         Optional<Price_v1> priceToApply = brandServiceV1.innoqaTechTest_v1(brandID, productID, applyDate);
         if (priceToApply.isEmpty()) {

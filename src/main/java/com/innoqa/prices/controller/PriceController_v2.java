@@ -22,7 +22,7 @@ public class PriceController_v2 {
     private PriceService_v2Impl priceServiceV2;
 
     @GetMapping("/techtest")
-    public ResponseEntity<PriceDTO> getResult(@RequestParam(required=true) Long brandID,
+    public ResponseEntity<PriceDTO> innoqaTechTest_v2(@RequestParam(required=true) Long brandID,
                                               @RequestParam(required=true) Long productID,
                                               @RequestParam(required=true) String applyDate) {
 
